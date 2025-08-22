@@ -1,0 +1,44 @@
+{
+  "name": "quote-prototype-demo",
+  "version": "1.0.0",
+  "description": "报价配置原型组件演示 - React + TypeScript + Tailwind CSS",
+  "main": "src/index.tsx",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "build:prod": "GENERATE_SOURCEMAP=false react-scripts build",
+    "build:analyze": "ANALYZE=true react-scripts build",
+    "build:demo": "react-scripts build && cp -r build/* dist/",
+    "test": "react-scripts test",
+    "test:coverage": "react-scripts test --coverage --watchAll=false",
+    "eject": "react-scripts eject",
+    "preview": "serve -s build",
+    "clean": "rm -rf build dist",
+    "package": "npm run build && tar -czf quote-prototype-demo.tar.gz build/"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "typescript": "^4.9.5",
+    "web-vitals": "^2.1.4"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@types/node": "^16.18.0",
+    "serve": "^14.2.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

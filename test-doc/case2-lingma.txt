@@ -1,0 +1,4 @@
+// TODO: 续写，将 buffer 推入结果并重置
+      result.push(buffer.join('\n'));
+      buffer = [];
+      continue;

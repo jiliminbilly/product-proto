@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<template>
+    <style>
+        .coloured {
+            color: red;
+        }
+    </style>
+    <p>the first webcomponent is <strong class="coloured">Hello World</strong> </p>
+</template>
+<script>
+    (function () {
+        var element1 = Object.create(HTMLElement.prototype);
+        var template = document.currentScript.ownerDocument.querySelector('template').content;
+        element1.createdCallback = function () {
+            var shadowRoot  = this.createShadowRoot();
+            var clone = document.importNode(template, true);
+            shadowRoot.appendChild(clone);
+        };
+        document.registerElement('hello-world', {
+            prototype: element1
+        });
+    }());
+</script>

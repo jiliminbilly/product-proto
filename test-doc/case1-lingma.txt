@@ -1,0 +1,23 @@
+ const wrapper = (...args: Parameters<F>) => {
+    if (immediate && !invoked) {
+      fn(...args);
+      invoked = true;
+      setTimeout(() => {
+        invoked = false;
+      }, wait);
+      return;
+    }
+    if (timer !== undefined) clearTimeout(timer);
+    timer = setTimeout(() => {
+      
+      fn(...args);
+      
+      timer = undefined;
+    }, wait);
+    return wrapper as Debounced<F>;
+  }
+  wrapper.cancel = () => {
+    if (timer !== undefined) clearTimeout(timer);
+    invoked = false;
+    timer = undefined;
+  };
